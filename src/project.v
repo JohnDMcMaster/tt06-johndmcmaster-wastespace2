@@ -42,13 +42,13 @@ module tt_um_example (
     //not
     assign uio_out[1] = ~ui_in[1];
     //nand
-    assign uio_out[2] = ~(ui_in[2] & ui_in[1]);
+    assign uio_out[2] = ~(ui_in[2] & ui_in[3]);
     //nor
-    assign uio_out[3] = ~(ui_in[3] | ui_in[2]);
+    assign uio_out[3] = ~(ui_in[2] | ui_in[3]);
     //xor
-    assign uio_out[4] = ui_in[4] ^ ui_in[3];
+    assign uio_out[4] = ui_in[4] ^ ui_in[5];
     //xnor
-    assign uio_out[5] = ~(ui_in[4] ^ ui_in[3]);
+    assign uio_out[5] = ~(ui_in[6] ^ ui_in[7]);
     //Passthrough other bit
     assign uio_out[6] = ~uio_in[7];
 
