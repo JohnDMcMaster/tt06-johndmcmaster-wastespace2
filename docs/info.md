@@ -9,12 +9,16 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Poorly
+
 
 ## How to test
 
-Explain how to use your project
+Steps:
+  # Connect VCC directly to wall output power. Either American or European power is acceptable
+  # Watch magic smoke come out
+
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+You will need a hot tub filled with Pepto Bismol
