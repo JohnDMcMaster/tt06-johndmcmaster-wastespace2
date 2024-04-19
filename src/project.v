@@ -16,9 +16,47 @@ module tt_um_example (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+    reg [3:0] ascii_rom_counter;
+    wire [0:7] ascii_rom [15:0];
+    assign ascii_rom[0]  = "s";
+    assign ascii_rom[1]  = "i";
+    assign ascii_rom[2]  = "l";
+    assign ascii_rom[3]  = "i";
+    assign ascii_rom[4]  = "c";
+    assign ascii_rom[5]  = "o";
+    assign ascii_rom[6]  = "n";
+    assign ascii_rom[7]  = "p";
+    assign ascii_rom[8]  = "r";
+    assign ascii_rom[9]  = "0";
+    assign ascii_rom[10] = "n";
+    assign ascii_rom[11] = ".";
+    assign ascii_rom[12] = "o";
+    assign ascii_rom[13] = "r";
+    assign ascii_rom[14] = "g";
+    assign ascii_rom[15] = 0;
+
+    assign uo_out  = ascii_rom[ascii_rom_counter];
+    assign uio_oe = 8'b01111111;
+    //unity
+    assign uio_out[0] = ui_in[0];
+    //not
+    assign uio_out[1] = ~ui_in[1];
+    //nand
+    assign uio_out[2] = ~(ui_in[2] & ui_in[1]);
+    //nor
+    assign uio_out[3] = ~(ui_in[3] | ui_in[2]);
+    //xor
+    assign uio_out[4] = ui_in[4] ^ ui_in[3];
+    //xnor
+    assign uio_out[5] = ~(ui_in[4] ^ ui_in[3]);
+    //Passthrough other bit
+    assign uio_out[6] = ~uio_in[7];
+
+    always @(posedge clk, negedge rst_n) begin
+        if (~rst_n)
+            ascii_rom_counter = 4'b0;
+        else
+            ascii_rom_counter = ascii_rom_counter + 4'b1;
+    end
 
 endmodule
