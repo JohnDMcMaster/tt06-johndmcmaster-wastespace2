@@ -51,6 +51,7 @@ module tt_um_example (
     assign uio_out[5] = ~(ui_in[6] ^ ui_in[7]);
     //Passthrough other bit
     assign uio_out[6] = ~uio_in[7];
+    assign uio_out[7] = 1'b0;
 
     always @(posedge clk, negedge rst_n) begin
         if (~rst_n)
