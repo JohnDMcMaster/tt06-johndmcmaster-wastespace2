@@ -15,8 +15,8 @@ Poorly
 ## How to test
 
 Steps:
-  # Connect VCC directly to wall output power. Either American or European power is acceptable
-  # Watch magic smoke come out
+  1. Connect VCC directly to wall output power. Either American or European power is acceptable
+  2. Watch magic smoke come out
 
 
 ## External hardware
